@@ -1,4 +1,4 @@
-# WxAutoReply
+# wx-auto-reply
 auto reply weixin message
 
 # python版本支持

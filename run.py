@@ -2,6 +2,8 @@
 # wechat auto reply
 import os
 import itchat
+import time
+import random
 
 
 # 回复文本／表情
@@ -16,6 +18,7 @@ def text_reply(msg):
             itchat.send(msg['Text'], toUserName=mpsName)
     if msg['FromUserName'] == mpsName:
         if msg.__getitem__("Type") == 'Text':
+            time.sleep(random.randint(0, 10))
             itchat.send(msg['Text'], toUserName=userName)
 
 
@@ -33,6 +36,7 @@ def download_files(msg):
         msg['Text'](msg['FileName'])
         itchat.send('@%s@%s' % ('img' if msg['Type'] == 'Picture' else 'fil', msg["FileName"]), mpsName)
     if msg['FromUserName'] == mpsName:
+        time.sleep(random.randint(0, 10))
         msg['Text'](msg['FileName'])
         itchat.send('@%s@%s' % ('img' if msg['Type'] == 'Picture' else 'fil', msg["FileName"]), userName)
 
